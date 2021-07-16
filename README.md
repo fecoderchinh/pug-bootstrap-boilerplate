@@ -13,5 +13,5 @@ A simple boilerplate for Pug and Bootstrap.
 ## Installation
 
 1. `npm install` or `yarn`
-2. `gulp watch`
+2. `npm run serve` or `yarn serve`
 3. enjoy.

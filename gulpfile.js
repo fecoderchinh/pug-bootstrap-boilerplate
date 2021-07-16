@@ -12,13 +12,21 @@ function html() {
         .pipe(dest('./bundles/'));
 }
 
-task('styles', () => {
+function css() {
     return src('./assets/scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(dest('./bundles/css/'));
-});
+}
 
 exports.watch = () => {
     watch('./templates/**/*.pug', html);
-    watch('./assets/scss/**/*.scss', series('styles'));
+    watch('./assets/scss/**/*.scss', css);
 }
+
+function defaultTasks(cb) {
+    html();
+    css();
+    cb();
+}
+
+exports.default = defaultTasks;
