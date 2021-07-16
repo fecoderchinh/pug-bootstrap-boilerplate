@@ -11,3 +11,7 @@ A simple boilerplate for Pug and Bootstrap.
 * [Bootstrap](https://getbootstrap.com/)
 
 ## Installation
+
+1. `npm install` or `yarn`
+2. `gulp watch`
+3. enjoy.
