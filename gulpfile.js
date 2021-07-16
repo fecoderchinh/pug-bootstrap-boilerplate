@@ -1,9 +1,9 @@
-const { src, dest, watch, series, task } = require('gulp');
+const { src, dest, watch } = require('gulp');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass')(require('sass'));
 
 function html() {
-    return src(['./templates/**/*.pug', '!./templates/partials/*.pug'])
+    return src(['./templates/**/*.pug', '!./templates/partials/*.pug', '!./templates/wrapper.pug'])
         .pipe(
             pug({
                 pretty: true
@@ -15,7 +15,7 @@ function html() {
 function css() {
     return src('./assets/scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(dest('./bundles/css/'));
+        .pipe(dest('./css/'));
 }
 
 exports.watch = () => {

@@ -1,6 +1,6 @@
 body {
   display: block;
-  h1 {
-    color: red;
-  }
+}
+body h1 {
+  color: red;
 }
