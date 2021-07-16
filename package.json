@@ -1,0 +1,26 @@
+{
+  "name": "pug-bootstrap",
+  "version": "1.0.0",
+  "description": "Pug and Bootstrap",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp"
+  },
+  "keywords": [
+    "pug",
+    "bootstrap",
+    "sass"
+  ],
+  "author": "fecoderchinh",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^5.0.0",
+    "node-sass": "^6.0.1",
+    "pug": "^3.0.2",
+    "sass": "^1.35.2"
+  },
+  "dependencies": {}
+}
