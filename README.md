@@ -10,6 +10,12 @@ A simple boilerplate for Pug and Bootstrap.
 * [Sass](https://sass-lang.com/)
 * [Bootstrap](https://getbootstrap.com/)
 
+## Requirements
+
+Make sure you have run the below package globally.
+1. `npm i serve -g` or `yarn global add serve` ([serve](https://www.npmjs.com/package/serve))
+2. `npm i concurrently -g` or `yarn global add concurrently` ([concurrently](https://www.npmjs.com/package/concurrently))
+
 ## Installation
 
 1. `npm install` or `yarn`

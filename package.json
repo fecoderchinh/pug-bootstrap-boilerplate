@@ -1,19 +1,17 @@
 {
   "name": "pug-bootstrap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pug and Bootstrap",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "gulp",
-    "serve": "gulp && gulp watch"
+    "serve": "concurrently \"gulp\" concurrently \"gulp watch\" concurrently \"npx serve\""
   },
   "keywords": [
     "pug",
     "bootstrap",
     "sass"
   ],
-  "author": "fecoderchinh",
+  "author": "Fecoder <fecoder.chinh@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^4.0.2",
