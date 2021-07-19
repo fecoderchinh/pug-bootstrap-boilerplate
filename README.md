@@ -12,7 +12,7 @@ A simple boilerplate for Pug and Bootstrap.
 
 ## Importants
 
-Make sure you have run the below package globally.
+Make sure you have run the below packages globally.
 1. `npm i serve -g` or `yarn global add serve` ([serve](https://www.npmjs.com/package/serve))
 2. `npm i concurrently -g` or `yarn global add concurrently` ([concurrently](https://www.npmjs.com/package/concurrently))
 
@@ -37,4 +37,5 @@ Make sure you have run the below package globally.
 │   ├── partials/               # The elements of partial
 │   ├── wrapper.pug             # The root wrapper which will be extended within pages/
 ├── gulpfile.js                 # Setup Gulp tasks
+├── serve.json                  # The configuration for serving
 ```
