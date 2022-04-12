@@ -13,8 +13,9 @@ A simple boilerplate for Pug and Bootstrap.
 ## Importants
 
 Make sure you have run the below packages globally.
-1. `npm i serve -g` or `yarn global add serve` ([serve](https://www.npmjs.com/package/serve))
-2. `npm i concurrently -g` or `yarn global add concurrently` ([concurrently](https://www.npmjs.com/package/concurrently))
+1. `npm install --global gulp-cli` or `yarn global add gulp-cli`
+2. `npm i serve -g` or `yarn global add serve` ([serve](https://www.npmjs.com/package/serve))
+3. `npm i concurrently -g` or `yarn global add concurrently` ([concurrently](https://www.npmjs.com/package/concurrently))
 
 ## Installation
 
