@@ -4,7 +4,7 @@
   "description": "Pug and Bootstrap",
   "main": "gulpfile.js",
   "scripts": {
-    "serve": "concurrently \"gulp\" \"gulp watch\" \"npx serve\" \"npx npm-force-resolutions\""
+    "serve": "concurrently \"gulp\" \"gulp watch\" \"npx serve -l 8888\" \"npx npm-force-resolutions\""
   },
   "keywords": [
     "pug",
