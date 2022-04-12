@@ -4,7 +4,7 @@
   "description": "Pug and Bootstrap",
   "main": "gulpfile.js",
   "scripts": {
-    "serve": "concurrently \"gulp\" concurrently \"gulp watch\" concurrently \"npx serve\""
+    "serve": "concurrently \"gulp\" concurrently \"gulp watch\" concurrently \"npx serve\" \"npx npm-force-resolutions\""
   },
   "keywords": [
     "pug",
@@ -20,5 +20,8 @@
     "pug": "^3.0.2",
     "sass": "^1.35.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "overrides": {
+    "graceful-fs": "^4.2.9"
+  }
 }
