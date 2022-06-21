@@ -1,7 +1,6 @@
-
 'use strict';
 
-const gulp = require('gulp');
+const { src, dest, watch } = require('gulp');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass')(require('sass'));
 const prefix = require('gulp-autoprefixer');
@@ -18,8 +17,17 @@ const options = {
     },
 }
 
-gulp.task('sass', async function() {
-  gulp.src( options.SASS.src )
+function html() {
+    return src( options.PUG.src )
+    // .pipe(watch({
+    //   name: "HTML"
+    // }))
+    .pipe(pug({pretty: true}))
+    .pipe(dest( options.PUG.build ));
+}
+
+function css() {
+    return src( options.SASS.src )
     // .pipe(watch({
     //   name: "Sass"
     // }))
@@ -31,22 +39,18 @@ gulp.task('sass', async function() {
       console.log("Error:", err);
     })
     .pipe(prefix( "last 1 version" ))
-    .pipe(gulp.dest( options.SASS.build ));
-});
+    .pipe(dest( options.SASS.build ));
+}
 
-gulp.task('html', async function () {
-  gulp.src( options.PUG.src )
-    // .pipe(watch({
-    //   name: "HTML"
-    // }))
-    .pipe(pug({pretty: true}))
-    .pipe(gulp.dest( options.PUG.build ));
-});
+exports.watch = () => {
+    watch('./templates/**/*.pug', html);
+    watch('./assets/scss/**/*.scss', css);
+}
 
+function defaultTasks(cb) {
+    html();
+    css();
+    cb();
+}
 
-gulp.task('watch', async function () {
-  gulp.watch( options.PUG.src , gulp.series('html'));
-  gulp.watch( options.SASS.src , gulp.series('sass')  );
-});
-
-gulp.task('default', gulp.series('html', 'sass', 'watch'));
+exports.default = defaultTasks;
