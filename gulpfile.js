@@ -1,32 +1,52 @@
-const { src, dest, watch } = require('gulp');
+
+'use strict';
+
+const gulp = require('gulp');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass')(require('sass'));
+const prefix = require('gulp-autoprefixer');
 
-function html() {
-    return src(['./templates/**/*.pug', '!./templates/partials/**/*.pug', '!./templates/wrapper.pug'])
-        .pipe(
-            pug({
-                pretty: true
-            })
-        )
-        .pipe(dest('./bundles/'));
+const options = {
+    PUG:{
+        src: ['./templates/**/*.pug', '!./templates/partials/**/*.pug', '!./templates/wrapper.pug'],
+        build: "bundles/"
+    },
+
+    SASS: {
+        src: ['./assets/scss/style.scss', '!./assets/scss/private/**/*.scss'],
+        build: "css/"
+    },
 }
 
-function css() {
-    return src(['./assets/scss/style.scss', '!./assets/scss/private/**/*.scss'])
-        .pipe(sass().on('error', sass.logError))
-        .pipe(dest('./css/'));
-}
+gulp.task('sass', async function() {
+  gulp.src( options.SASS.src )
+    // .pipe(watch({
+    //   name: "Sass"
+    // }))
+    // .pipe(plumber())
+    .pipe(sass({
+      outputStyle: 'compressed'
+      }))
+    .on("error", async function (err) {
+      console.log("Error:", err);
+    })
+    .pipe(prefix( "last 1 version" ))
+    .pipe(gulp.dest( options.SASS.build ));
+});
 
-exports.watch = () => {
-    watch('./templates/**/*.pug', html);
-    watch('./assets/scss/**/*.scss', css);
-}
+gulp.task('html', async function () {
+  gulp.src( options.PUG.src )
+    // .pipe(watch({
+    //   name: "HTML"
+    // }))
+    .pipe(pug({pretty: true}))
+    .pipe(gulp.dest( options.PUG.build ));
+});
 
-function defaultTasks(cb) {
-    html();
-    css();
-    cb();
-}
 
-exports.default = defaultTasks;
+gulp.task('watch', async function () {
+  gulp.watch( options.PUG.src , gulp.series('html'));
+  gulp.watch( options.SASS.src , gulp.series('sass')  );
+});
+
+gulp.task('default', gulp.series('html', 'sass', 'watch'));
