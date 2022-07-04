@@ -43,8 +43,14 @@ function css() {
 }
 
 exports.watch = () => {
-    watch('./templates/**/*.pug', html);
-    watch('./assets/scss/**/*.scss', css);
+
+    /*
+    * usePolling: true to enable watch from Docker
+    *
+    * https://forums.docker.com/t/gulp-watch-task-not-working-with-docker/86084/3
+    * */
+    watch('./templates/**/*.pug', {interval: 1000, usePolling: true}, html);
+    watch('./assets/scss/**/*.scss', {interval: 1000, usePolling: true}, css);
 }
 
 function defaultTasks(cb) {
