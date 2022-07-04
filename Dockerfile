@@ -1,12 +1,15 @@
 # Dockerfile  
-FROM node:14-alpine
+FROM node:latest
 
-WORKDIR /pug-bootstrap-boilerplate
+WORKDIR /dpb
 
-ADD package.json gulpfile.js serve.json /pug-bootstrap-boilerplate
+COPY . .
 
-RUN npm install
+RUN npm i
+RUN npm i -g concurrently
+RUN npm i -g gulp
+RUN npm link gulp
 
-ADD gulpfile.js package.json serve.json /pug-bootstrap-boilerplate
+CMD npm run build
 
 EXPOSE 8888

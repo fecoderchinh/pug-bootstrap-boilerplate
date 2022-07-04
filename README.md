@@ -23,6 +23,21 @@ Make sure you have run the below packages globally.
 2. `npm run serve` or `yarn serve`
 3. enjoy.
 
+## Docker is now supported.
+### To play on live reloading
+Step 1: Run `npm i` or `yarn` at your local directory.
+
+Step 2: Run `docker compose up --build`
+
+Then try to change any file to see the affects.
+
+### To play on the final works
+Step 1: Run `docker build -t dpb_image .` or `docker compose up --build` then press `Ctrl + C` to stop docker-compose
+
+Step 1: Run `docker run -p 4000:8888 dpb_image`
+
+Step 2: Goto localhost:4000 and check for the final works.
+
 ## Project Struture
 
 ```
@@ -37,6 +52,11 @@ Make sure you have run the below packages globally.
 │   ├── pages/                  # All pug pages
 │   ├── partials/               # The elements of partial
 │   ├── wrapper.pug             # The root wrapper which will be extended within pages/
+├── .dockerignore               # Ignore the specifics in docker container
+├── .gitignore                  # Ignore the specifics in github
+├── docker-compose.yml          # To run multi-container
+├── Dockerfile                  # The task commands to run Docker
 ├── gulpfile.js                 # Setup Gulp tasks
+├── package.json                # The pakages list for this repo
 ├── serve.json                  # The configuration for serving
 ```

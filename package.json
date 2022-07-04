@@ -5,10 +5,11 @@
   "main": "gulpfile.js",
   "scripts": {
     "preinstall": "npx force-resolutions",
+    "build": "concurrently \"gulp\" \"npx serve -l 8888\" \"npx npm-force-resolutions\"",
     "serve": "concurrently \"gulp\" \"gulp watch\" \"npx serve -l 8888\" \"npx npm-force-resolutions\""
   },
   "resolutions": {
-    "glob-parent": "^6.0.1"
+    "glob-parent": "6.0.1"
   },
   "keywords": [
     "pug",
