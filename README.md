@@ -40,7 +40,7 @@ Step 2: Run `docker run -p 4000:8888 dpb_image`
 Step 3: Goto localhost:4000 and check for the final works.
 
 ## How to use production mode?
-Copy all of assets within `demo` directory and publish them on your server.
+Copy all of assets into `demo` directory and publish them on your server.
 
 ## Project Struture
 
