@@ -39,6 +39,9 @@ Step 2: Run `docker run -p 4000:8888 dpb_image`
 
 Step 3: Goto localhost:4000 and check for the final works.
 
+## How to use production mode?
+Copy all of assets within `demo` directory and publish them on your server.
+
 ## Project Struture
 
 ```
@@ -47,6 +50,7 @@ Step 3: Goto localhost:4000 and check for the final works.
 ├── bundles/                    # The main directory that will include all of the compiled html
 │   ├── pages/                  # All html pages that compiled
 ├── js/                         # Main folder for JS files
+├── demo/                       # Production mode directory
 ├── css/                        # Main folder for cascade style files
 ├── node_modules/               # Store third party modules and initializers (e.g.: gulp, pug, etc)
 ├── templates/                  # Main folder for pug template files
