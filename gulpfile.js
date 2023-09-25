@@ -5,6 +5,7 @@ const pug = require('gulp-pug');
 const sass = require('gulp-sass')(require('sass'));
 const prefix = require('gulp-autoprefixer');
 const replace = require('gulp-replace');
+const cssbeautify = require('gulp-cssbeautify');
 
 const options = {
     PUG:{
@@ -47,12 +48,13 @@ function css() {
     // }))
     // .pipe(plumber())
     .pipe(sass({
-      outputStyle: 'compressed'
+      outputStyle: 'expanded'
       }))
     .on("error", async function (err) {
       console.log("Error:", err);
     })
     .pipe(prefix( "last 1 version" ))
+    .pipe(cssbeautify())
     .pipe(dest( options.SASS.build ));
 }
 
